@@ -1,0 +1,44 @@
+#lang racket
+(define (primer lista)
+  (car lista))
+  
+
+(define (segundo lista)
+  (cdr lista))
+(define (recorrer_cola lista nivel)
+  (if (null? lista)  ; Verificar si la lista está vacía
+      '()            ; Retornar una lista vacía si no hay nada que recorrer
+      (let ((nodo (primer lista))); Obtener el primer elemento de la lista
+      (let ((cola (segundo lista)))  
+        (display nodo)            ; Mostrar el nodo actual
+        (display " Nodo padre -- ")            ; Mostrar un espacio para legibilidad
+        (display cola)
+        (display " Hijos -- ")
+        (recorrer_subarbol nodo nivel)
+        (recorrer_cola cola nivel))))) ; Llamar recursivamente para el resto de la lista
+  
+
+(define (recorrer_subarbol lista nivel)
+  (if (null? lista)  ; Verificar si la lista está vacía
+      '()            ; Retornar una lista vacía si no hay nada que recorrer
+      (let ((nodo (primer lista))); Obtener el primer elemento de la lista
+      (let ((cola (segundo lista)))  
+        (display nodo)            ; Mostrar el nodo actual
+        (display " Nodo Padre -- ")            ; Mostrar un espacio para legibilidad
+        (display cola)
+        (display " Hijos --")
+        ;;(recorrer_subarbol cola nivel)))))
+        (recorrer_cola cola nivel))))); Llamar recursivamente para el resto de la lista
+
+
+  
+
+
+;; Ejemplos de uso:
+;; (profundidades '(1 (T (2 (T) (3))) (4 (5) (T)) (6 (T (7)))))
+;; (profundidades '(1 (6 (3) (2 (5))) (4 (7 (8) (9)))))
+;; (profundidades '(1 (2 (3 (T (T) (T)) (T (T) (T))))))
+;; (primer '(1 (T (2 (T) (3))) (4 (5) (T)) (6 (T (7)))))
+;; (segundo '(1 (T (2 (T) (3))) (4 (5) (T)) (6 (T (7)))))
+
+

@@ -1,0 +1,13 @@
+Alexander Rodrigo Toro Astudillo
+rol : 202304647-7
+
+Instrucciones de ejecución:
+
+1.Crear un terminal en la ubicación del archivo
+2.Ya en la terminal ejecutar el siguiente codigo para compilar: make CityDefender
+3.luego para ejecutar el programa, se utiliza el siguiente codigo: /.CityDefender
+
+es posible que para algunas ocasiones no ejecute el programa con problemas, ya lo solucione intentando reitaradas veces, y no me tira ningún problema, pero existe la posibilidad que no se ejecute, se agradeceria que se intente reitadaras veces ejecutar el programa, porque si funciona cuando se ejecuta y no tira error.
+
+Versión del linux: Ubuntu 22.04.4 LTS
+Versión del compilador gcc utilizado : gcc (Ubuntu 13.2.0-23ubuntu4) 13.2.0

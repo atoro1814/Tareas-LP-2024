@@ -1,0 +1,37 @@
+#lang racket
+
+(define (primer lista)
+  (car lista))
+
+(define (segundo lista)
+  (cdr lista))
+
+;; Función principal
+(define (profundidades arbol)
+  (sort (recorrer arbol 0) <))
+
+(define (recorrer lista nivel)
+  (if (null? lista)
+      '() ;; Caso base: si la lista está vacía, retorna una lista vacía
+      (let ((raiz (primer lista))
+            (cola (segundo lista)))
+        (let ((resultados (if (eq? raiz 'T)
+                              (list nivel) ;; Si es un tesoro, agrega la profundidad
+                              '()))) ;; Inicializa los resultados
+
+          ;; Llama recursivamente a los subárboles
+          (append resultados
+                  (recorrer2 cola (+ nivel 1)))))))
+
+(define (recorrer2 lista nivel)
+  ;; Caso base: si la lista está vacía, termina
+  (if (null? lista)
+      '()
+      (let ((subarbol (primer lista))
+            (resto (segundo lista)))
+        ;; Verifica si el subárbol es una lista antes de llamarlo recursivamente
+        (append (if (list? subarbol)
+                    (recorrer subarbol nivel) ;; Recurre en el subárbol
+                    '()) ;; Si no es lista, no hace nada
+                (recorrer2 resto nivel))))) ;; Llama a recorrer2 para el resto de los subárboles
+

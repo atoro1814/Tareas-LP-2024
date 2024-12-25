@@ -1,0 +1,7 @@
+#lang racket
+
+(define (suma a b)
+  (+ a b))
+
+(display (suma 3 5))
+(newline)

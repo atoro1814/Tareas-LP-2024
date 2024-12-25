@@ -1,0 +1,8 @@
+(define (taylorSenoSimple n x)
+  (if (= n 0)
+      x  
+      (let* ((term (expt -1 n))  ; (-1)^n
+             (factorial (factorial (+ (* 2 n) 1)))  ; (2n + 1)!
+             (power (expt x (+ (* 2 n) 1))))  ; x^(2n + 1)
+        (+ (/ (* term power) factorial)  ; Término actual
+           (taylorSenoSimple (- n 1) x)))))  ; Llamada recursiva
